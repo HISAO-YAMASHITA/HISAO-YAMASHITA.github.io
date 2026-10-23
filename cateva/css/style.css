@@ -1,0 +1,289 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700;900&family=Noto+Sans+JP:wght@400;700;900&display=swap');
+
+:root {
+  --bg-color: #050505;
+  --text-main: #f0f0f0;
+  --purple: #8a2be2;
+  --green: #00ff00;
+  --red: #ff3333;
+  --orange: #ff9900;
+  --pink: #ff00ff;
+  --border-dim: #333;
+  --font-mincho: 'Noto Serif JP', serif;
+  --font-gothic: 'Noto Sans JP', sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-gothic);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+* { box-sizing: inherit; }
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+.eva-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid var(--border-dim);
+  position: relative;
+}
+
+/* 警告ストリーム（上部・下部） */
+.data-stream {
+  color: var(--red);
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  border-bottom: 2px solid var(--red);
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+.data-stream::before {
+  content: "/// /// /// ///";
+  margin-right: 15px;
+  opacity: 0.7;
+}
+
+/* ヘッダーエリア */
+.hero-section {
+  position: relative;
+  height: 400px;
+  /* CSSファイルがcssフォルダ内にある想定のパス */
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url('../img/Gemini_Generated_Image_eb77r5eb77r5eb77.jpg') center/cover;
+  border: 1px solid var(--border-dim);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.title-vertical {
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  writing-mode: vertical-rl;
+  font-family: var(--font-mincho);
+  font-size: 3rem;
+  font-weight: 900;
+  text-shadow: 2px 2px 0 #000, -1px -1px 0 var(--red);
+  line-height: 1.1;
+}
+
+.main-title-wrap {
+  text-align: right;
+  font-family: var(--font-mincho);
+}
+.main-title-wrap h1 {
+  font-size: 4rem;
+  margin: 0;
+  font-weight: 900;
+}
+.main-title-wrap h2 {
+  font-size: 2rem;
+  margin: 10px 0;
+  color: #ddd;
+}
+
+/* ステータスバー */
+.status-bars {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  font-family: var(--font-gothic);
+  font-size: 0.7rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.bar-container {
+  width: 30%;
+}
+.bar-label { margin-bottom: 3px; color: #ccc; }
+.bar {
+  height: 8px;
+  background: #222;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 98% 100%, 0% 100%);
+}
+.bar-fill { height: 100%; }
+.fill-purple { width: 80%; background-color: var(--purple); }
+.fill-green { width: 45%; background-color: var(--green); }
+.fill-orange { width: 90%; background-color: var(--orange); }
+
+/* 導入テキスト */
+.intro-text {
+  border: 1px solid var(--purple);
+  padding: 20px;
+  font-family: var(--font-mincho);
+  line-height: 1.8;
+  text-align: justify;
+  position: relative;
+  margin-bottom: 50px;
+}
+/* カッコ（「」）のような装飾 */
+.intro-text::before, .intro-text::after {
+  content: '';
+  position: absolute;
+  width: 20px; height: 20px;
+  border: 2px solid var(--purple);
+}
+.intro-text::before { top: -5px; left: -5px; border-right: none; border-bottom: none; }
+.intro-text::after { bottom: -5px; right: -5px; border-left: none; border-top: none; }
+
+/* セクション共通レイアウト */
+.eva-section {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 60px;
+}
+.eva-section.reverse {
+  flex-direction: row-reverse;
+}
+
+/* UIパネル */
+.ui-panel {
+  width: 30%;
+  border: 2px solid;
+  padding: 20px;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(255,255,255,0.02);
+}
+.ui-panel.purple { border-color: var(--purple); color: var(--purple); }
+.ui-panel.red { border-color: var(--red); color: var(--red); }
+.ui-panel.pink { border-color: var(--pink); color: var(--pink); }
+
+.huge-number {
+  font-size: 8rem;
+  font-weight: 900;
+  line-height: 1;
+  font-family: var(--font-gothic);
+  text-align: center;
+}
+.ui-subtext {
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 10px;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 5px;
+}
+
+/* 警告ボックス */
+.warning-box {
+  margin-top: 20px;
+  border: 1px solid var(--red);
+  padding: 10px;
+  background: rgba(255,0,0,0.1);
+  color: var(--red);
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+.warning-title { font-size: 1.2rem; text-align: center; margin-bottom: 5px; }
+
+/* コンテンツパネル */
+.content-panel {
+  width: 70%;
+}
+.section-title {
+  font-family: var(--font-mincho);
+  font-size: 1.8rem;
+  border-bottom: 1px solid #444;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+  line-height: 1.4;
+}
+
+.feature-item {
+  margin-bottom: 40px;
+}
+.data-tag {
+  display: inline-block;
+  border: 1px solid;
+  padding: 2px 10px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  background: rgba(255,255,255,0.1);
+}
+.tag-green { border-color: var(--green); color: var(--green); }
+.tag-red { border-color: var(--red); color: var(--red); }
+.tag-pink { border-color: var(--pink); color: var(--pink); }
+
+.feature-item h3 {
+  font-family: var(--font-mincho);
+  font-size: 1.2rem;
+  margin: 0 0 15px 0;
+}
+
+.item-content {
+  display: flex;
+  gap: 20px;
+}
+.item-img {
+  width: 150px;
+  height: 100px;
+  background: #333;
+  object-fit: cover;
+  border: 1px solid #555;
+}
+.item-text {
+  flex: 1;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #ccc;
+  text-align: justify;
+}
+
+/* フッター */
+.eva-footer {
+  border-top: 2px solid var(--red);
+  padding-top: 15px;
+  color: var(--red);
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .eva-section, .eva-section.reverse {
+    flex-direction: column;
+  }
+  .ui-panel, .content-panel {
+    width: 100%;
+  }
+  .item-content {
+    flex-direction: column;
+  }
+  .item-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+  .title-vertical {
+    position: static;
+    writing-mode: horizontal-tb;
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  .main-title-wrap h1 { font-size: 2.5rem; }
+}
